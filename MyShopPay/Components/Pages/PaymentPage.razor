@@ -1,0 +1,177 @@
+﻿@using MyShopPay.Dtos
+@using MyShopPay.Services
+@using MyShopPay.Exceptions
+@using MyShopPay.ValueObjects
+
+@page "/payments/{PaymentId:guid}"
+@rendermode @(new InteractiveServerRenderMode(false))
+@implements IDisposable
+
+@inject IPaymentService PaymentService
+@inject NavigationManager NavigationManager
+
+
+<MudPaper class="d-flex justify-center align-center" Height="100%">
+    @if (!_isInit)
+    {
+        <MudCard class="pa-4 rounded-lg"
+                 Style="width: 330px; min-height: 460px">
+            @if (!_isSuccesPayment)
+            {
+                <EditForm Model="@_paymentCardForm" OnValidSubmit="@UpdatePaymentAsync">
+                    <DataAnnotationsValidator />
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudText Style="font-weight: 500;" Align="Align.Center" Typo="Typo.h3">myShop Pay</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    <MudCardContent Class="d-flex justify-center">
+                        <MudGrid Style="max-width: 300px;">
+                            <MudItem xs="12">
+                                <MudTextField id="Credit Card Number"
+                                              Disabled="@_isUpdatePayment" Mask="@(new PatternMask("0000 0000 0000 0000"))"
+                                              For="@(() => _paymentCardForm.CreditCardNumber)"
+                                              Label="Credit Card Number"
+                                              InputType="InputType.Text"
+                                              @bind-Value="@_paymentCardForm.CreditCardNumber" Variant="Variant.Outlined" Clearable />
+                            </MudItem>
+                            <MudItem xs="6">
+                                <MudTextField Disabled="@_isUpdatePayment"
+                                              Mask="@(new DateMask("MM/yy"))"
+                                              Label="Expires"
+                                              InputType="InputType.Text"
+                                              @bind-Value="@_paymentCardForm.Expires"
+                                              For="@(() => _paymentCardForm.Expires)"
+                                              Variant="Variant.Outlined"
+                                              id="Expires" />
+                            </MudItem>
+                            <MudItem xs="6">
+                                <MudTextField Disabled="@_isUpdatePayment"
+                                              Mask="@(new PatternMask("000"))"
+                                              Label="CVC" InputType="InputType.Text"
+                                              @bind-Value="@_paymentCardForm.CVC"
+                                              For="@(() => _paymentCardForm.CVC)"
+                                              Variant="Variant.Outlined"
+                                              id="CVC" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudCardContent>
+                    <MudCardActions class="d-flex justify-center pa-4 align-center" style="min-height:100px; flex: 1;">
+                        @if (!_isUpdatePayment)
+                        {
+                            <MudButton Style="text-transform: none;"
+                                       StartIcon="@Icons.Material.Filled.CreditCard"
+                                       Variant="Variant.Filled"
+                                       ButtonType="ButtonType.Submit"
+                                       Color="Color.Primary">
+                                Pay @Payment.Price.ToString("c")
+                            </MudButton>
+                        }
+                        else
+                        {
+                            <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+                        }
+                    </MudCardActions>
+                </EditForm>
+            }
+            else
+            {
+                <MudCardContent Class="d-flex justify-center flex-column align-center" Style="height:100%">
+                    <MudIcon Color="Color.Primary" style="font-size: 70px;" Icon="@Icons.Material.Filled.Check"></MudIcon>
+                    <MudText Class="ma-2" Style="font-weight: 500;" Align="Align.Center" Typo="Typo.h5">Payment has been accepted</MudText>
+                    <MudText Class="ma-4" Style="font-weight: 500;" Align="Align.Center" Typo="Typo.body1">You will be redirect to the store in the moment</MudText>
+                    <div Class="relative">
+                        <div class="timer-container"><MudText>@_secondsToRedirection</MudText></div>
+                        <MudProgressCircular Class="ma-2" Color="Color.Primary" Indeterminate="true"></MudProgressCircular>
+                    </div>
+                    <MudText Class="ma-4" Style="font-weight: 500;" Align="Align.Center" Typo="Typo.body1">or</MudText>
+                    <MudButton Style="text-transform: none;"
+                               Class="ma-2"
+                               OnClick="@RedirectToShop"
+                               StartIcon="@Icons.Material.Filled.ShoppingCartCheckout"
+                               Variant="Variant.Filled"
+                               Color="Color.Primary">
+                        Press To Be Redirect
+                    </MudButton>
+                </MudCardContent>
+            }
+        </MudCard>
+    }
+    else
+    {
+        <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+    }
+</MudPaper>
+
+
+
+@code {
+    [Parameter]
+    public Guid PaymentId { get; set; }
+    private PaymentDto Payment { get; set; } = default!;
+
+    private bool _isInit = true;
+    private bool _isUpdatePayment = false;
+    private bool _isSuccesPayment = false;
+    private PaymentCard _paymentCardForm = new();
+    private bool _isDisposed = false;
+    private int _secondsToRedirection = 5;
+
+    protected async override Task OnInitializedAsync()
+    {
+        try
+        {
+            Payment = await PaymentService.GetByIdAsync(PaymentId);
+
+            if (Payment.Status == PaymentStatus.Paid)
+            {
+                NavigationManager.NavigateTo("/not-found-page");
+                return;
+            }
+        }
+        catch (NotFoundException)
+        {
+            NavigationManager.NavigateTo("/not-found-page");
+            return;
+        }
+
+        _isInit = false;
+    }
+
+    private async Task UpdatePaymentAsync()
+    {
+        _isUpdatePayment = true;
+
+        await PaymentService.UpdateAsync(PaymentId);
+
+        _isUpdatePayment = false;
+        _isSuccesPayment = true;
+
+        StateHasChanged();
+
+        do
+        {
+            await Task.Delay(1000);
+            _secondsToRedirection -= 1;
+            StateHasChanged();
+        } while (_secondsToRedirection > 0 && !_isDisposed);
+
+
+        if (!_isDisposed)
+        {
+            NavigationManager.NavigateTo(Payment.ContinueUri.OriginalString, forceLoad: true);
+        }
+    }
+
+    private void RedirectToShop()
+    {
+        NavigationManager.NavigateTo(Payment.ContinueUri.OriginalString, forceLoad: true);
+    }
+
+    public void Dispose()
+    {
+        _isDisposed = true;
+    }
+
+
+}

@@ -1,23 +1,22 @@
 ﻿@inherits LayoutComponentBase
+<MudThemeProvider Theme="MyCustomTheme" />
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+@Body
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
+@code {
+    MudTheme MyCustomTheme = new MudTheme()
+        {
+            PaletteLight = new PaletteLight()
+            {
+                Primary = Colors.Indigo.Default,
+                Secondary = Colors.Pink.Default,
+                AppbarBackground = Colors.Red.Default,
+            },
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
-
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
-</div>
+            LayoutProperties = new LayoutProperties()
+            {
+                DrawerWidthLeft = "260px",
+                DrawerWidthRight = "300px"
+            }
+        };
+}
