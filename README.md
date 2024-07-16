@@ -10,7 +10,7 @@ The project is mock payment gateway, created for **myShop** project.
 * ASP.NET Core Blazor
 * MudBlazor - Blazor Component Library
 * ASP.NET Core Web API
-* Entity Framework Core 8 (MS SQL)
+* Entity Framework Core (MS SQL)
 ## Related Projects
 * **[myShop API](https://github.com/marcin-niewczas/MyShop-API)**
 * **[myShop Angular Client](https://github.com/marcin-niewczas/MyShop-Angular-Client)**
