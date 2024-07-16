@@ -1,5 +1,5 @@
 <div align="center"> 
-  <h3>myShopPay</h3>
+  <h3>myShop Pay</h3>
   <h6>Mock Payment Gateway<h6>
 </div>
 
