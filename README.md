@@ -15,4 +15,4 @@ The project is mock payment gateway, created for **myShop** project.
 * **[myShop API](https://github.com/marcin-niewczas/MyShop-API)**
 * **[myShop Angular Client](https://github.com/marcin-niewczas/MyShop-Angular-Client)**
 ## Getting Started
-> Full instruction for starting projects **myShop** is **[here](https://github.com/marcin-niewczas/MyShop-API)**.
+> Full instruction for starting projects **myShop** is **[here](https://github.com/marcin-niewczas/MyShop-API#getting-started)**.
