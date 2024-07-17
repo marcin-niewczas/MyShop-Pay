@@ -1,0 +1,11 @@
+name: myshopapp
+
+services:
+    mssqldb:
+        container_name: myshop-mssql
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        environment:
+          - SA_PASSWORD=Pass@word
+          - ACCEPT_EULA=Y
+        ports:
+          - 5434:1433
