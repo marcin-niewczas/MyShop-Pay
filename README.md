@@ -36,5 +36,5 @@ The project is mock payment gateway, created for **myShop** project.
        ```
 3. In root directory of repository run
    ```sh
-   dotnet run --project ./MyShopPay/MyShop.csproj --launch-profile https
+   dotnet run --project ./MyShopPay/MyShopPay.csproj --launch-profile https
    ```
