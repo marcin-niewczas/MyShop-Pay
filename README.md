@@ -19,7 +19,7 @@ The project is mock payment gateway, created for **myShop** project.
 > [!Important]
 > For fully functionality, the project **myShop Pay** must have **[related projects](#related-projects)** running.
 > 
-> Full instruction for starting projects **myShop** is **[here](https://github.com/marcin-niewczas/MyShop-API#getting-started)**.
+> Full instruction for starting projects **myShop** is **[here](https://github.com/marcin-niewczas/MyShop-API#launch-myshop-projects)**.
 1. Clone repository
    ```sh
    git clone https://github.com/marcin-niewczas/MyShop-Pay.git
