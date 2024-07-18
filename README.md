@@ -32,6 +32,7 @@ The project is mock payment gateway, created for **myShop** project.
      - Run **Docker App**
      - In root directory of repository run
        ```sh
+       cd ../../
        docker-compose up -d
        ```
 3. In root directory of repository run
