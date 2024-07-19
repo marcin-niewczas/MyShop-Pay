@@ -24,6 +24,5 @@ internal sealed class Payment : BaseEntity
     public void UpdateStatus(PaymentStatus status)
     {
         Status = status;
-        UpdatedAt = DateTime.Now;
     }
 }
