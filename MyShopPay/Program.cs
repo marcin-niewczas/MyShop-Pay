@@ -17,14 +17,16 @@ cultureInfo.NumberFormat.CurrencySymbol = "$";
 CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
 CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
-
-builder.Services.AddMudServices();
-
-builder.Services.AddSingleton<ExceptionsMiddleware>();
+builder.Services
+    .AddRazorComponents()
+    .AddInteractiveServerComponents()
+    .AddInteractiveWebAssemblyComponents();
 
 builder.Services
+    .AddMudServices();
+
+builder.Services
+    .AddSingleton<ExceptionsMiddleware>()
     .AddAppSettingsOptions(builder.Configuration)
     .AddSecurity(builder.Configuration)
     .AddDataAccessLayer()
@@ -38,7 +40,7 @@ builder.Services.AddSwaggerGen(swagger =>
 
     swagger.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "myShop Pay Mock Api",
+        Title = "myShop Pay Mock API",
         Version = "v1"
     });
     swagger.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -85,7 +87,8 @@ app.UseStaticFiles();
 app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
+    .AddInteractiveServerRenderMode()
+    .AddInteractiveWebAssemblyRenderMode();
 
 app.MapGroup("/api/v1/payments")
    .MapPaymentEndpoints();

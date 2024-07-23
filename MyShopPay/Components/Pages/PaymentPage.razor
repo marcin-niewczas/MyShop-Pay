@@ -4,7 +4,7 @@
 @using MyShopPay.ValueObjects
 
 @page "/payments/{PaymentId:guid}"
-@rendermode @(new InteractiveServerRenderMode(false))
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
 @implements IDisposable
 
 @inject IPaymentService PaymentService
@@ -12,18 +12,18 @@
 
 <PageTitle>Payment | myShop Pay</PageTitle>
 
-<MudPaper class="d-flex justify-center align-center" Height="100%">
+<MudPaper Class="d-flex justify-center align-center pa-4" MinHeight="100dvh">
     @if (!_isInit)
     {
-        <MudCard class="pa-4 rounded-lg"
-                 Style="width: 330px; min-height: 460px">
+        <MudCard Class="pa-4 rounded-lg d-flex justify-center align-center"
+                 Style="width: 330px; min-height: 465px">
             @if (!_isSuccesPayment)
             {
                 <EditForm Model="@_paymentCardForm" OnValidSubmit="@UpdatePaymentAsync">
                     <DataAnnotationsValidator />
                     <MudCardHeader>
                         <CardHeaderContent>
-                            <MudText Style="font-weight: 500;" Align="Align.Center" Typo="Typo.h3">myShop Pay</MudText>
+                            <MudText Style="font-weight: 700; font-size: 48px;" Align="Align.Center" Typo="Typo.h1">myShop Pay</MudText>
                         </CardHeaderContent>
                     </MudCardHeader>
                     <MudCardContent Class="d-flex justify-center">
@@ -173,6 +173,4 @@
     {
         _isDisposed = true;
     }
-
-
 }
