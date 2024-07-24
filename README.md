@@ -26,7 +26,7 @@ The project is mock payment gateway, created for **myShop** project.
 
 ## Screenshots
 <div align="center">
-  <img src="./img/payment.png" width="90%" alt="Payment"/>
+  <img src="./img/payment.png" width="95%" alt="Payment"/>
   <p><strong>Payment</strong></p>
   <br />
   <br />
@@ -34,7 +34,7 @@ The project is mock payment gateway, created for **myShop** project.
   <p><strong>Payment Mobile</strong></p>
   <br />
   <br />
-  <img src="./img/payment-accepted.png" width="90%" alt="Payment Accepted" />
+  <img src="./img/payment-accepted.png" width="95%" alt="Payment Accepted" />
   <p><strong>Payment Accepted</strong></p>
 </div>
 
