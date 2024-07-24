@@ -39,7 +39,7 @@ The project is mock payment gateway, created for **myShop** project.
 * **[myShop Angular Client](https://github.com/marcin-niewczas/MyShop-Angular-Client)**
 
 ## Getting Started
-> [!Important]
+> [!IMPORTANT]
 > For fully functionality, the **myShop Pay** project must have **[related projects](#related-projects)** running.
 > 
 > Full instruction for starting **myShop** projects is **[here](https://github.com/marcin-niewczas/MyShop-API#launch-myshop-projects)**.
