@@ -6,8 +6,8 @@
 ## Table of Contents
 1. [About The Project](#about-the-project)
     - [Built with](#built-with)
-2. [Related Projects](#related-projects)
-3. [Screenshots](#screenshots)
+2. [Screenshots](#screenshots)
+3. [Related Projects](#related-projects)
 4. [Getting Started](#getting-started)
 5. [Licence](#licence)
 
@@ -19,10 +19,6 @@ The project is mock payment gateway, created for **myShop** project.
 * MudBlazor - Blazor Component Library
 * ASP.NET Core Web API
 * Entity Framework Core (MS SQL)
-
-## Related Projects
-* **[myShop API](https://github.com/marcin-niewczas/MyShop-API)**
-* **[myShop Angular Client](https://github.com/marcin-niewczas/MyShop-Angular-Client)**
 
 ## Screenshots
 <div align="center">
@@ -37,6 +33,10 @@ The project is mock payment gateway, created for **myShop** project.
   <img src="./img/payment-accepted.png" width="95%" alt="Payment Accepted" />
   <p><strong>Payment Accepted</strong></p>
 </div>
+
+## Related Projects
+* **[myShop API](https://github.com/marcin-niewczas/MyShop-API)**
+* **[myShop Angular Client](https://github.com/marcin-niewczas/MyShop-Angular-Client)**
 
 ## Getting Started
 > [!Important]
