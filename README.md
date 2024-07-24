@@ -3,6 +3,14 @@
   <h6>Mock Payment Gateway<h6>
 </div>
 
+## Table of Contents
+1. [About The Project](#about-the-project)
+    - [Built with](#built-with)
+2. [Related Projects](#related-projects)
+3. [Screenshots](#screenshots)
+4. [Getting Started](#getting-started)
+5. [Licence](#licence)
+
 ## About The Project
 The project is mock payment gateway, created for **myShop** project.
 ### Built with
@@ -11,9 +19,24 @@ The project is mock payment gateway, created for **myShop** project.
 * MudBlazor - Blazor Component Library
 * ASP.NET Core Web API
 * Entity Framework Core (MS SQL)
+
 ## Related Projects
 * **[myShop API](https://github.com/marcin-niewczas/MyShop-API)**
 * **[myShop Angular Client](https://github.com/marcin-niewczas/MyShop-Angular-Client)**
+
+## Screenshots
+<div align="center">
+  <img src="./img/payment.png" width="90%" alt="Payment"/>
+  <p><strong>Payment</strong></p>
+  <br />
+  <br />
+  <img src="./img/payment-mobile.png" width="30%" alt="Payment Mobile" />
+  <p><strong>Payment Mobile</strong></p>
+  <br />
+  <br />
+  <img src="./img/payment-accepted.png" width="90%" alt="Payment Accepted" />
+  <p><strong>Payment Accepted</strong></p>
+</div>
 
 ## Getting Started
 > [!Important]
@@ -39,3 +62,5 @@ The project is mock payment gateway, created for **myShop** project.
    ```sh
    dotnet run --project ./MyShopPay/MyShopPay.csproj --launch-profile https
    ```
+## Licence
+Distributed under the **MIT Licence**. See **[LICENSE](./LICENSE)** for more information.
