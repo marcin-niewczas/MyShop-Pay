@@ -10,7 +10,7 @@
 2. **[Screenshots](#screenshots)**
 3. **[Related Projects](#related-projects)**
 4. **[Getting Started](#getting-started)**
-5. **[Licence](#licence)**
+5. **[License](#license)**
 
 ## About The Project
 The project is mock payment gateway, created for **myShop** project.
@@ -63,5 +63,5 @@ The project is mock payment gateway, created for **myShop** project.
    ```sh
    dotnet run --project ./MyShopPay/MyShopPay.csproj --launch-profile https
    ```
-## Licence
+## License
 Distributed under the **MIT Licence**. See **[LICENSE](./LICENSE)** for more information.
