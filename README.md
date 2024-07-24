@@ -1,15 +1,16 @@
 <div align="center"> 
-  <h3>myShop Pay</h3>
-  <h6>Mock Payment Gateway<h6>
+  <h1>myShop Pay - Mock Payment Gateway</h1>
 </div>
+<br />
+<br />
 
 ## Table of Contents
-1. [About The Project](#about-the-project)
-    - [Built with](#built-with)
-2. [Screenshots](#screenshots)
-3. [Related Projects](#related-projects)
-4. [Getting Started](#getting-started)
-5. [Licence](#licence)
+1. **[About The Project](#about-the-project)**
+    - **[Built with](#built-with)**
+2. **[Screenshots](#screenshots)**
+3. **[Related Projects](#related-projects)**
+4. **[Getting Started](#getting-started)**
+5. **[Licence](#licence)**
 
 ## About The Project
 The project is mock payment gateway, created for **myShop** project.
