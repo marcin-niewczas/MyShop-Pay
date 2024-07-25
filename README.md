@@ -23,15 +23,15 @@ The project is mock payment gateway, created for **myShop** project.
 
 ## Screenshots
 <div align="center">
-  <img src="./img/payment.png" width="95%" alt="Payment"/>
+  <kbd><img src="./img/payment.png" width="95%" alt="Payment"/></kbd>
   <p><strong>Payment</strong></p>
   <br />
   <br />
-  <img src="./img/payment-mobile.png" width="30%" alt="Payment Mobile" />
+  <kbd><img src="./img/payment-mobile.png" width="30%" alt="Payment Mobile" /></kbd>
   <p><strong>Payment Mobile</strong></p>
   <br />
   <br />
-  <img src="./img/payment-accepted.png" width="95%" alt="Payment Accepted" />
+  <kbd><img src="./img/payment-accepted.png" width="95%" alt="Payment Accepted" /></kbd>
   <p><strong>Payment Accepted</strong></p>
 </div>
 
