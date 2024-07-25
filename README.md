@@ -64,4 +64,4 @@ The project is mock payment gateway, created for **myShop** project.
    dotnet run --project ./MyShopPay/MyShopPay.csproj --launch-profile https
    ```
 ## License
-Distributed under the **MIT Licence**. See **[LICENSE](./LICENSE)** for more information.
+Distributed under the **MIT License**. See **[LICENSE](./LICENSE)** for more information.
