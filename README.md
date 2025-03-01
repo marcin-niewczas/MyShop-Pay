@@ -48,15 +48,10 @@ The project is mock payment gateway, created for **myShop** project.
    ```sh
    git clone https://github.com/marcin-niewczas/MyShop-Pay.git
    ```
-2. Database
-   - Windows
-     - Nothing to do, but if you wanna run database via **Docker** go to `Mac OS/Linux` step
-   - Mac OS/Linux
-     - Go to `./MyShopPay/appsettings.json` and comment `WindowsConnectionString`, then uncomment `DockerConnectionString`
+2. Database     
      - Run **Docker App**
      - In root directory of repository run
        ```sh
-       cd ../../
        docker-compose up -d
        ```
 3. In root directory of repository run
